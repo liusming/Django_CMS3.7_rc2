@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 
 # Application definition
 
@@ -43,6 +46,18 @@ INSTALLED_APPS = [
     'menus',
     'treebeard',
     'sekizai',
+    'filer',
+    'easy_thumbnails',
+    'mptt',
+    'djangocms_text_ckeditor',
+    'djangocms_link',
+    'djangocms_file',
+    'djangocms_picture',
+    'djangocms_video',
+    'djangocms_googlemap',
+    'djangocms_snippet',
+    'djangocms_style',
+    'djangocms_column',
 
 ]
 
@@ -67,9 +82,9 @@ ROOT_URLCONF = 'untitled24.urls'
 
 TEMPLATES = [
     {
+        'DIRS': ['templates'],
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+#        'DIRS': [os.path.join(BASE_DIR, 'templates')],       ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,7 +99,23 @@ TEMPLATES = [
     },
 ]
 
+
+CMS_TEMPLATES = [
+    ('home.html', 'Home page template'),
+]
+
+
 WSGI_APPLICATION = 'untitled24.wsgi.application'
+
+
+THUMBNAIL_HIGH_RESOLUTION = True
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters'
+)
 
 
 # Database
@@ -135,6 +166,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
 
 LANGUAGES = [
     ('en', 'English'),
