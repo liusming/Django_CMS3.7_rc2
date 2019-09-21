@@ -154,7 +154,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'zh-hant'
 
 TIME_ZONE = 'UTC'
 
@@ -170,8 +170,52 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+from django.utils.translation import gettext_lazy as _
+LANGUAGES = (
+    ('en', _('English')),
+    ('ja', _('Japanese')),
+    ('zh-hans', _('Simplified Chinese')),
+    ('zh-hant', _('Traditional Chinese')),
 
-LANGUAGES = [
-    ('en', 'English'),
-    ('de', 'German'),
-]
+)
+
+
+CMS_LANGUAGES = {
+    ## Customize this
+    1: [
+
+        {
+            'code': 'en',
+            'name': _('English'),
+            'redirect_on_fallback': False,
+            'public': True,
+            'hide_untranslated': False,
+        },
+        {
+            'code': 'ja',
+            'name': _('Japanese'),
+            'redirect_on_fallback': True,
+            'public': True,
+            'hide_untranslated': False,
+        },
+        {
+            'code': 'zh-hans',
+            'name': _('Simplified Chinese'),
+            'redirect_on_fallback': True,
+            'public': True,
+            'hide_untranslated': False,
+        },
+        {
+            'code': 'zh-hant',
+            'name': _('Traditional Chinese'),
+            'redirect_on_fallback': True,
+            'public': True,
+            'hide_untranslated': False,
+        },
+    ],
+    'default': {
+        'redirect_on_fallback': True,
+        'public': True,
+        'hide_untranslated': False,
+    },
+}
