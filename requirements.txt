@@ -1,0 +1,9 @@
+Django==2.2.5
+django-classy-tags==0.9.0
+django-cms==3.7.0rc2
+django-formtools==2.1
+django-sekizai==1.0.0
+django-treebeard==4.3
+djangocms-admin-style==1.4.0
+pytz==2019.2
+sqlparse==0.3.0
