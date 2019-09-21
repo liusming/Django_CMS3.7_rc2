@@ -82,9 +82,9 @@ ROOT_URLCONF = 'untitled24.urls'
 
 TEMPLATES = [
     {
-        'DIRS': ['templates'],
+#        'DIRS': ['templates'],
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-#        'DIRS': [os.path.join(BASE_DIR, 'templates')],       ,
+        'DIRS': [os.path.join(BASE_DIR, 'untitled24', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -100,9 +100,12 @@ TEMPLATES = [
 ]
 
 
-CMS_TEMPLATES = [
-    ('home.html', 'Home page template'),
-]
+CMS_TEMPLATES = (
+    ## Customize this
+    ('fullwidth.html', 'Fullwidth'),
+    ('sidebar_left.html', 'Sidebar Left'),
+    ('sidebar_right.html', 'Sidebar Right')
+)
 
 
 WSGI_APPLICATION = 'untitled24.wsgi.application'
